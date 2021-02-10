@@ -29,7 +29,6 @@ def proizv ():
             print(arr2[i][j], end='\t')
         print()
 
-
     
 proizv()
 
@@ -100,8 +99,8 @@ class Human:
 
     def Show (self):
         print ("Name:", self.__name, "\nSecondname:" , self.__secondname, "\nHometown:",self.__hometown,"\nBirth: ",self.__birth_date)
-    def Get_Age (self):
-        return self.__birth_date
+    def Get_Age (self,current_year):
+        return current_year-self.__birth_date
          
 class Student(Human):
     def __init__(self,name,secondname,hometown,birth_date,university):
