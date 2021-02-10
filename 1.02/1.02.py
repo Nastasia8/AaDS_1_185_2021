@@ -85,11 +85,8 @@ list_10 = [6, 43, -2, 11, -55, -12, 3, 345, 0]
 
 
 
-dictionary = {}
-dictionary.update({i:'Positive' for i in list_10 if i>0 })  
-dictionary.update({i:'Negative' for i in list_10 if i<0 })
-dictionary.update({i:'zero' for i in list_10 if i==0 })
-print (dictionary)
+
+print ()
 
 # 11 ------------------------------------------------------
 print()
