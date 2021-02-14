@@ -1,0 +1,19 @@
+2)
+print([number**2 for number in range(1, 21, 2)])
+
+3)
+a)
+k = int(input())
+i = 1 
+s = 1 
+while i <= k:
+    s = s*i
+    i += 1 
+print(s)
+b)
+k = int(input())
+def fun(n):
+    if n>1:
+        return n*fun(n-1)
+    return 1 
+print(fun(k))
