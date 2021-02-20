@@ -9,7 +9,7 @@
 
 # #3
 # def function(k):
-#     for n in range(1, k):
+#     for n in range(1, k+1):
 #         result = 2**n-1
 #         print(result)
 # k = int(input('K: '))
@@ -21,6 +21,8 @@
 # for i in arr3[::-1]:
 #     if i<0: 
 #         sum+=i
+#     else:
+#         break
 # print(sum)
 # f=0
 # sum2=0
@@ -37,7 +39,7 @@
 # print(some)
 
 # #6
-# string = str('Hello hi how hello are and you I am fine thank you and you hello You Thank And')
+# string = 'Hello hi how hello are and you I am fine thank you and you hello You Thank And'
 # a = string.split()
 # di = {}
 # for i in a:
@@ -56,7 +58,7 @@
 #         print('\n')
 # def func(matrix):
 #     for i in range(len(matrix)):
-#         matrix[i][i] *= 2
+#         matrix[i][2-i] *= 2
 # show(matrix)
 # print('--------------------')
 # func(matrix)
