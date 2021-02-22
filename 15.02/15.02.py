@@ -48,7 +48,7 @@ def spod (sp):
         for j in range(i):
             if sp[i] == sp[j]:
                 u[i] += 1
-        for k in range(u[i]):
+        for _ in range(u[i]):
             a+=str(sp[i])
         c.append(a)
     result = set(c)
@@ -66,14 +66,19 @@ spisok=[ 5, 6, 9, 6, 3,1,2,4, 5, 2, 5, 1]
 
 def turpling (spisok):
     spisok.sort()
-    spisok=set (spisok)
+    for i in spisok:
+        if spisok.count(i)>1:
+            spisok.remove(i)
     return tuple(spisok)
 print (turpling(spisok))
 
 print ("6)")
 h=int(input("heigh:"))
-treug = [ [ 1  for j in range (i+1)]   for i in range (h)]
-
+treug = [[ 1  for j in range (i+1)]   for i in range (h)]
+for i in range (h):
+    for j in range (i+1):
+        if j!=0 and j!=i and i>1:
+            treug[i][j]=treug[i-1][j-1]+treug[i-1][j]
 for i in treug:
     print (i)
 
