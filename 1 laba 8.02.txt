@@ -1,0 +1,102 @@
+#2
+def fun(lista, x, y):
+    for i in range(len(lista)):
+        if lista[i]%2==1:
+            lista[i]**=x**y
+        print(lista)
+        
+    
+lista = list(range(1, 21))
+fun(lista, 2, 1)
+#4
+print[7, 1, 3, 4, 3, 9, 14, -5, -17, -13, -19, -18]
+cout=0
+for i in a:
+    if i<0:
+        cout += i
+print(cout)
+#5
+def ww (lista, y, z):
+    for x in len(lista):
+        if x%2==1:
+            l.append(x)
+        print(l)
+        
+y = 1
+z = 2
+lista = list(range(1, 21))
+ww(lista, 1,2)
+#6
+words = "Hello hi how hello are and you I am fine thank you and you hello You Thank And"
+dic = {}
+for word in words.split(" "):
+    if word in dic:
+        dic[word] = dic[word] + 1
+    else:
+        dic[word] = 1
+print(dic)
+#7
+def fun(arr):
+    for i in range(len(arr)):
+        for j in range(len(arr[i])):
+            print(arr[i][j], end=" ")
+        print()
+        
+arr = [[1,2,3],[4,5,6],[7,8,9]]
+
+fun(arr)
+#9
+def fun(a,b):
+    for i in b:
+        if i not in a:
+            return False
+        return True
+        
+print(fun({1,2,3},[5]))
+print(fun({1,2,3},[1,2]))
+print(fun({1,2,3},[1,2,5]))
+#3 
+k=int(input("k = "))
+def ww(k):
+  for i in range(1,k):
+    x=(2**i)-1
+  print(x)
+ww(k)
+#10
+list_ = [6, 43, -2, 11, -555, -12, 3, 345, 0]
+ dictionary = [{number: "positive" if number>0 else "negative" if number<0 else "zero" for number in list_}]
+ print(dictionary)
+#11
+class Human:
+  def __init__(self, name,surname,placeofbirth,data):
+    self.name = name
+    self.surname = surname
+    self.placeofbirth = placeofbirth
+    self.data = data
+  def Show(self):
+    print("name "+self.name+" surname "+self.surname+" placeofbirth "+self.placeofbirth+" data "+str(self.data))
+  def GetAge(self):
+    print(str(2021-self.data)+" age")
+class Student(Human):
+  def __init__(self, name,surname,placeofbirth,data,course):
+    super().__init__(name,surname,placeofbirth,data)
+    self.course = course
+  def ww(self):
+    print(" "+str(self.course))
+class Ticher(Human):
+  def __init__(self, name,surname,placeofbirth,data,subject):
+    super().__init__(name,surname,placeofbirth,data)
+    self.subject = subject
+  def subjectshow(self):
+    print("subject -> "+self.subject)
+Vova=Human("Vova","Ivanov","Ivanovo",2002)
+Vova.Show()
+Vova.GetAge()
+print(" ")
+Andrey=Student("Andrey","","Moscow",2000,1)
+Andrey.Show()
+Andrey.ww()
+print(" ")
+Dima=Ticher("Dima","Petrov","Moscow",1995,"math")
+Dima.Show()
+Dima.subjectshow()

@@ -1,0 +1,62 @@
+#1 
+n = int(input())
+f = 0
+if n > 0: f = 1
+for i in range(2,n+1):
+    f *= i
+print(f)
+#2
+def function(n):
+    if n==0:
+        return 0
+    if n==1:
+        return 2
+    if n==2:
+        return 5
+    return function(n-1) + function(n-2) + function(n-3)
+    return result
+    for i in range(16):
+print(function(i))
+#4
+def getNod(a , b):
+    while(a!=0) and (b!=0):
+        
+        if a > b:
+            a = a%b
+        else:
+            b=b-a
+        return a+b
+        
+print(*getNod = {0}*.format(getNod(60,36)))
+#5
+def nod(a, b):
+    m = a * b
+    while a != 0 and b != 0:
+        if a > b:
+            a %= b
+        else:
+            b %= a
+    return a
+    
+def nok(a, b):
+   return a / nod(a, b) * b
+   
+print(nok(25, 50))
+#6
+def nod(a, b):
+    m = a * b
+    while a != 0 and b != 0:
+        if a > b:
+            a %= b
+        else:
+            b %= a
+    return a
+n = int(input())
+arr = []
+a = 0
+for i in range(1, n+1):
+    arr.append(int(input('> ')))
+arr = sorted(arr)
+for i in range(1, len(arr)):
+    a = nod(arr[i-1], arr[i])
+print(a)
