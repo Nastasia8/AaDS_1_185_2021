@@ -4,6 +4,8 @@ h = int(input('h = '))
 def treug(h):
     a = [1, 1]
     b = [1, 1]
+    print([1])
+    print(a)
     k = 2
     for i in range(h-2):
         for j in range(1, k):
