@@ -1,0 +1,14 @@
+def one(y):
+    numbers = list()
+    while y > 1:
+        if y % 2 == 0:
+            y /= 2
+            numbers.append(int(y))
+        else:
+            y = (y * 3 + 1) / 2
+            numbers.append(int(y))
+    print(numbers)
+        
+y = int(input("Число: "))
+one(y)
+    
