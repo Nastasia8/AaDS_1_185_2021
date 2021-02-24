@@ -4,10 +4,10 @@
 # def fun(n):
 #     while n > 1:
 #         if n % 2 == 0:
-#             n /= 2
+#             n //= 2
 #             arr.append(n)
 #         else:
-#             n = ((n * 3) + 1 )/ 2
+#             n = ((n * 3) + 1 )// 2
 #             arr.append(n)
 #     return n
 # print(fun(n))
@@ -21,7 +21,7 @@
 #         return n * fuc(n-1)
 # def somebody(n):
 #     for i in range(1, n+1):
-#         result = i * (-1) * ((5 - i)/fuc(i))
+#         result = i * (-1) * ((5 - i)//fuc(i))
 #     return result
 # print(somebody(n))
 
@@ -85,7 +85,7 @@
 #     for i in range(0, n):
 #         arr = [0]*f
 #         for j in range(0, f):
-#             arr[j] = (factorial(i)/((factorial(j))*factorial(i-j)))*(a**j)*(b**(i-j))
+#             arr[j] = (factorial(i)//((factorial(j))*factorial(i-j)))*(a**j)*(b**(i-j))
 #         print(arr)
 #         f+=1
 # triangle(n)
