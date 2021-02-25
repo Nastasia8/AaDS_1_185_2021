@@ -99,7 +99,8 @@ def simple_multiples(number):
     return result
 
 def set_gcd(list_):
-    return list_.sort(reverse=True)
+    list_.sort(reverse=True)
+    return list_
     
 
 def greatest_common_divisor(*nums):
@@ -107,7 +108,5 @@ def greatest_common_divisor(*nums):
     result = 0
     return result
 
-list_ = (set(simple_multiples(256)) - set(simple_multiples(128)))
-print(list_)
 print(simple_multiples(15))
 print(set_gcd(simple_multiples(15)))

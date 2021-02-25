@@ -1,8 +1,11 @@
 from random import randint
+import datetime
+#from datetime import date
+
 ####2
 # list1 = list(range(1, 21, 2))
 # #1
-# list2 = list(map(lambda x: x**2, list1))
+# list2 = list(map(lambda x: x**2, filter(lambda x: x%2 == 1, list1))
 # #2
 # list3 = [x**2 for x in list1]
 
@@ -54,12 +57,10 @@ from random import randint
 ####6
 # text = "Hello hi how hello are and you I am fine thank you and you hello You Thank And"
 # arr = text.split(' ')
-# arr = map(lambda x: x.lower(), arr)
-# arr = (list(set(arr)))
-# print(arr)
+# arr = list(map(lambda x: x.lower(), arr))
 # dictionary = {}
 # for i in range(len(arr)):
-#     dictionary[i] = arr[i]
+#     dictionary[arr[i]] = arr.count(arr[i])
 # print(dictionary)
 
 ####7
@@ -73,9 +74,8 @@ from random import randint
 #     print(i, n)
 #     matrix[n][i] *= 2
 #     n -= 1
-# print(matrix[0])
-# print(matrix[1])
-# print(matrix[2])
+# for i in range(len(matrix)):
+#   print(matrix[i])
 
 ####8
 
@@ -107,12 +107,12 @@ from random import randint
 ####9
 
 # def inlist(list_, set_):
-# 	for i in list_:
-# 		if i in set_:
-# 			return True
-# 	return False
-
-
+#     for i in list_:
+#         if i in set_:
+#             pass
+#         else:
+#             return False
+#     return True
 # set_ = {1,2,3}
 # list_ = [3,4,5]
 # print(inlist(list_, set_))
@@ -123,55 +123,57 @@ from random import randint
 # print(dictionary)
 ####11
 
-# class Human:
-#     def __init__(self, name, second_name, born_in_place, born_in_year=2021):
-#         self.name = name
-#         self.second_name = second_name
-#         self.born_in_place = born_in_place
-#         self.born_in_year = born_in_year
+class Human:
+    def __init__(self, name, second_name, born_in_place, born_in_year=2002):
+        self.__name = name
+        self.__second_name = second_name
+        self.__born_in_place = born_in_place
+        self.__born_in_year = born_in_year
+        self.__c_year = int(str(datetime.datetime.now())[:4])
 
-#     def show(self):
-#         print(f"my name is {self. name} {self.second_name}. I'm borned in {self.born_in_place} in {self.born_in_year}")
+    def show(self):
+        print(f"my name is {self.__name} {self.__second_name}. I'm borned in {self.__born_in_place} in {self.__born_in_year}")
 
-#     def get_age(self):
-#         return 2021 - self.born_in_year
+    def get_age(self):
+        return self.__c_year - self.__born_in_year
 
-# class Teacher(Human):
-#     def __init__(self, name, second_name, born_in_place, born_in_year, subject):
-#         super().__init__(name, second_name, born_in_place, born_in_year)
-#         self.subject = subject
+class Teacher(Human):
+    def __init__(self, name, second_name, born_in_place, born_in_year, subject):
+        super().__init__(name, second_name, born_in_place, born_in_year)
+        self.__subject = subject
 
-#     def teach(self):
-#         print("Something very useful")
+    def teach(self):
+        print("Something very useful")
 
-#     def show(self):
-#         print(f"my subject is {self.subject}")
-#         super().show()
+    def show(self):
+        print(f"my subject is {self.__subject}")
+        super().show()
 
-# class Student(Human):
-#     def __init__(self, name, second_name, born_in_place, born_in_year=2021, course="1"):
-#         Human.__init__(self, name, second_name, born_in_place, born_in_year)
-#         self.course = course
+class Student(Human):
+    def __init__(self, name, second_name, born_in_place, born_in_year=2021, course="1"):
+        Human.__init__(self, name, second_name, born_in_place, born_in_year)
+        self.__course = course
 
-#     def understand(self):
-#         print("Got it")
+    def understand(self):
+        print("Got it")
 
-#     def show(self):
-#         print(f"my course is {self.course}")
-#         super().show()
+    def show(self):
+        print(f"my course is {self.__course}")
+        super().show()
 
-# if __name__ == "__main__":
-#     JS = Human(name="Johny", second_name="Silverleg", born_in_place="Night Town", born_in_year=2002)
-#     TS = Teacher("Tonny", "Silverhead", "Night Town", 2003, "math")
-#     DS = Student("Dylan", "Silverarm", "Night Town", 2001, "2")
-#     JS.show()
-#     if JS.get_age() <= 18:
-#         print("How")
-#     TS.show()
-#     DS.show()
-#     if TS.teach():
-#         TS.teach()
-#         DS.understand()
+
+if __name__ == "__main__":
+    JS = Human(name="Johny", second_name="Silverleg", born_in_place="Night Town", born_in_year=2002)
+    TS = Teacher("Tonny", "Silverhead", "Night Town", 2003, "math")
+    DS = Student("Dylan", "Silverarm", "Night Town", 2001, "2")
+    JS.show()
+    if JS.get_age() <= 18:
+        print("How")
+    TS.show()
+    DS.show()
+    if TS.teach():
+        TS.teach()
+        DS.understand()
 
 
 
