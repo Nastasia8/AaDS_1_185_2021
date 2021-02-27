@@ -1,21 +1,26 @@
 # #1
 # n = int(input())
 # def factorial(n):
-#     if n == 0:
-#         return 1
-#     else:
+#     if n > 1:
+#         print(n*factorial(n-1))
 #         return n*factorial(n-1)
+#     return 1
+#         
 # print(factorial(n))
 
 # #2
 # def fun(n):
 #     if n > 2:
+#         print(fun(n-1) + fun(n-2) + fun(n-3))
 #         return fun(n-1) + fun(n-2) + fun(n-3)
 #     elif n == 0:
+#         print(0)
 #         return 0
 #     elif n == 1:
+#         print(3)
 #         return 3 
 #     elif n == 2:
+#         print(5)
 #         return 5
 # print(fun(n))
 
@@ -80,7 +85,7 @@ def nod(a, b):
 n = int(input())
 arr = []
 a = 0
-for i in range(1, n):
+for i in range(1, n+1):
     arr.append(int(input('> ')))
 arr = sorted(arr)
 for i in range(1, len(arr)):
