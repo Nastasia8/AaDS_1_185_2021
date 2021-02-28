@@ -20,7 +20,7 @@ def ww (lista, y, z):
     for x in len(lista):
         if x%2==1:
             l.append(x)
-        print(l)
+        print(lista)
         
 y = 1
 z = 2
