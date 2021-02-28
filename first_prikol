@@ -1,25 +1,19 @@
-q = int(input("Введите количество элементов(от 1 до 1000): "))
+q = int(input())
 if (q >= 1) & (q <= 1000):
-    a = [0] * q
-    for i in range(q):
-        print(i + 1); a[i] = int(input("число: "))
+    a = list(map(int, input().split()))
     _a = [i for i in a]
-    print("Ввод:", a)
-    
-    def bubble(a, q, _a):
+    for i in range(q - 1):
+        for j in range(q - 1 - i):
+            if a[j] > a[j + 1]:
+                 a[j], a[j + 1] = a[j + 1], a[j]
+    if _a == a:
+        print(0)
+    else:
+        a = _a
         for i in range(q - 1):
             for j in range(q - 1 - i):
                 if a[j] > a[j + 1]:
                     a[j], a[j + 1] = a[j + 1], a[j]
-        if _a == a:
-            print(0)
-        else:
-            for i in range(q - 1):
-                for j in range(q - 1 - i):
-                    if a[j] > a[j + 1]:
-                        a[j], a[j + 1] = a[j + 1], a[j]
-                    print(a)
-        return(a)
-    print("Вывод:", bubble(a, q, _a))
+                print(*a, sep=" ")
 else:
-    print("Не соответсвует условию")
+    print("Error")
