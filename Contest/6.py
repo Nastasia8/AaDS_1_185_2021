@@ -1,18 +1,9 @@
 
 
-inputfile = open("input.txt", "r")
-
-n = int(inputfile.readline())
-
-list_c = (inputfile.readline()).split()
+n = int(input())
+list_c = input().split()
 list_c = [int(list_[i]) for i in range(n)]
 
-k = int(inputfile.readline())
-
-list_p = (inputfile.readline()).split()
+k = int(input())
+list_p = input().split()
 list_p = [int(list_[i]) for i in range(k)]
-
-print(k, n, "\n", list_c, "\n",list_p)
-inputfile.close()
-
-
