@@ -2,9 +2,16 @@
 
 n=int(input())
 numbers=list(map(int, input (). split (maxsplit=n)))
-print (len(set(numbers)))
+# print (len(set(numbers)))
+k=1
+numbers.sort()
+for i in range (1,n):
+    if numbers[n-1] != numbers [i]:
+        k+=1
+print (k)
+    
 
-#5
+#6
 
 amount_staff=int(input())
 staff=list(map(int, input (). split (maxsplit=amount_staff)))
