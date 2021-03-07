@@ -38,22 +38,24 @@ def merge_sort_main():
                         min_index = j
                         if min_index != i:
                             arr[i], arr[min_index] = arr[min_index], arr[i]
-            print('-')
+            print(begin_, end_, arr[0], arr[-1])
 
         elif k > 1 and arr[0] > arr[1]:
             arr[0], arr[1] = arr[1], arr[0]
-            print(begin_, end_, arr)
+            print(begin_, end_, arr[0], arr[1])
             # print(arr)
 
         return arr
 
-    print(merge_sort(arr, 1, len(arr)))
+    # merge_sort(arr, 1, len(arr))
+    arr = merge_sort(arr, 1, len(arr))
+    [print(item, end=" ") for item in arr]
 
 
-merge_sort_main()
 # if __name__ == "__main__":
 #     import doctest
-#     doctest.testmod()
+#     doctest.testmod(verbose=True)
+merge_sort_main()
 
 # def merge_sort(arr):
 #     if len(arr) > 1:
