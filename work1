@@ -1,0 +1,15 @@
+k=int(input(" "))
+a= [int(i)for i in input().split(" ")]
+num_swap=0
+for i in range(k-1):
+    for j in range(k-1-i):
+        if a[j+1]<a[j]:
+            t = a[j+1]
+            a[j+1] = a[j]
+            a[j] = t
+            num_swap= num_swap+1
+            for i in range(k):
+                print(a[i],end=" ")
+            print()
+if num_swap==0:
+    print(0)
