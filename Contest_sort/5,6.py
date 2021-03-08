@@ -6,7 +6,7 @@ numbers=list(map(int, input (). split (maxsplit=n)))
 k=1
 numbers.sort()
 for i in range (1,n):
-    if numbers[n-1] != numbers [i]:
+    if numbers[i-1] != numbers [i]:
         k+=1
 print (k)
     
