@@ -21,10 +21,13 @@ def merge_sort(arr):
                 arr[k] = half1[i]
                 i += 1
             #Иначе, эл. второй становится вперед
-            else:
+            elif half1[i] > half2[j]:
                 arr_copy[arr_copy.index(half1[i])], arr_copy[arr_copy.index(half2[j])] = half2[j], half1[i]
                 print(arr_copy[arr_copy.index(half1[i])], arr_copy[arr_copy.index(half2[j])], "swapped:", half2[j], half1[i])
                 arr[k] = half2[j]
+                j += 1
+            else:
+                i += 1
                 j += 1
             k += 1
         #Здесь происходит слияние первого списка в основной arr
