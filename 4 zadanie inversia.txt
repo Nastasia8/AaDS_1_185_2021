@@ -1,0 +1,6 @@
+i=input()
+j=list(map(int, input().split()))
+min=j.index(min(j))
+max=j.index(max(j[min:]))+min
+if min < max and max(j) / min(j) > 1: print (min+1, maxi-mini+1)
+else: print ('0')
