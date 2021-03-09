@@ -15,7 +15,8 @@ def bucket_sort(arr, n):
                 arr += bucket[k]
         else:
             break
-    return arr
+    print("Sorted array:")
+    print(bucket_elements(arr))
 
 def bucket_elements(bucket):
     string = ""
@@ -33,6 +34,4 @@ for i in range(n):
 print("Initial array:")
 print(bucket_elements(arr))
 print("**********")
-sorted_arr = bucket_sort(arr, n)
-print("Sorted array:")
-print(bucket_elements(sorted_arr))
+bucket_sort(arr, n)
