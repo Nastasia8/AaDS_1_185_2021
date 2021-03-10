@@ -29,14 +29,15 @@ def merge_sort(arr, id1, id2):
             k += 1
             j += 1
 
-        print(id1, id2, arr[0], arr[-1])
+        output_file.writelines(str(id1) + " " + str(id2) + " " + str(arr[0]) + " " + str(arr[-1]) + "\n")
     return arr
-
 
 n = int(input())
 arr = list(map(int, input().split()))[:n]
-if n == 1:
-    print(arr[0])
-else:
-    merge_sort(arr, 1, len(arr))
-    [print(i, end=" ") for i in arr]
+with open('output.txt', 'w') as output_file:
+    if n == 1:
+        output_file.write(str(arr[0]))
+    else:
+        merge_sort(arr, 1, len(arr))
+        [output_file.writelines(str(i) + " ") for i in arr]
+output_file.close()
