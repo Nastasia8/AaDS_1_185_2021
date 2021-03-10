@@ -7,13 +7,12 @@ def bucket_sort(arr, n):
             el = int(j) // 10**i % 10
             bucket[el].append(j)
         if bucket[0] != arr:
+            arr = []
             print("Phase", i+1)
             [print(f"Bucket {s}:", bucket_elements(bucket[s])) if bucket[s] else print(f"Bucket {s}: empty") for s in range(10)]
             print("**********")
-            arr = []
             for k in range(10):
                 arr += bucket[k]
-        
     print("Sorted array:")
     print(bucket_elements(arr))
 

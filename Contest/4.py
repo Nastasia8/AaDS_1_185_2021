@@ -16,6 +16,8 @@ def merge_sort(arr):
             if half1[i] < half2[j]:
                 arr[k] = half1[i]
                 i += 1
+            elif half1[i] == half2[j]:
+                i += 1
             else:
                 arr[k] = half2[j]
                 count += len(half1) - i
