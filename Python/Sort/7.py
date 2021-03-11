@@ -51,7 +51,6 @@ def radix():
         if k > k_max:
             k_max = k
     print('Initial array:')
-    # [print(f'{arr[i]}, ', end="") for i in range(n)]
     for i in range(n):  # Уравниваем разряды
         k = 0
         m = arr[i]
@@ -77,16 +76,16 @@ def radix():
             for f in range(10):
                 if arr[j][i] == str(f):
                     arr_index[f].append(arr[j])
-        for i in range(10):
-            if arr_index[i] != []:
-                print(f'Bucket {i}: ', end="")
-                for x in range(len(arr_index[i])):
-                    if x != len(arr_index[i])-1:
-                        print(f'{arr_index[i][x]}, ', end="")
+        for l in range(10):
+            if arr_index[l] != []:
+                print(f'Bucket {l}: ', end="")
+                for x in range(len(arr_index[l])):
+                    if x != len(arr_index[l])-1:
+                        print(f'{arr_index[l][x]}, ', end="")
                     else:
-                        print(arr_index[i][x])
+                        print(arr_index[l][x])
             else:
-                print(f'Bucket {i}: empty')
+                print(f'Bucket {l}: empty')
         print('**********')
         arr.clear()
         for i in range(10):  # переписываем arr
