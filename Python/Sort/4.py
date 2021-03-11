@@ -1,4 +1,3 @@
-s = 0
 
 
 def merge_sort(arr):
@@ -32,6 +31,6 @@ def merge_sort(arr):
 
 n = int(input())
 arr = list(map(int, input().split()))[:n]
+s = 0
 merge_sort(arr)
 print(s)
-# [print(item, end=' ')for item in arr]
