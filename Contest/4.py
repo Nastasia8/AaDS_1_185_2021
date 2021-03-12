@@ -11,17 +11,14 @@ def merge_sort(arr):
         i = 0
         j = 0
         k = 0
-
         while i < len(half1) and j < len(half2):
-            if half1[i] < half2[j]:
+            if half1[i] > half2[j]:
+                arr[k] = half2[j]
+                j += 1
+                count += len(half1) - i
+            else:
                 arr[k] = half1[i]
                 i += 1
-            elif half1[i] == half2[j]:
-                i += 1
-            else:
-                arr[k] = half2[j]
-                count += len(half1) - i
-                j += 1
             k += 1
 
         while i < len(half1):
@@ -33,13 +30,10 @@ def merge_sort(arr):
             arr[k] = half2[j]
             k += 1
             j += 1
-        return count
     return arr
 
 n = int(input())
 arr = list(map(int, input().split()))[:n]
 count = 0
-if n == 1:
-    print(0)
-else:
-    print(merge_sort(arr))
+merge_sort(arr)
+print(count)
