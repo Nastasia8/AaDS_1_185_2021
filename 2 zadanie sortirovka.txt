@@ -1,7 +1,12 @@
 num = int(input())
-members = [input().split() for _ in range(num)]
+members = []
+for i in range(num):
+    id, value = map(int, input().split())
+    members.append([id, value])
+
 members.sort(key=lambda x: int(x[0]))
 members.sort(key=lambda x: int(x[1]), reverse=True)
 for i in range(num):
-    for j in range(members):
-    print(members[i][j])
+    for j in range(2):
+        print(members[i][j], end=" ")
+    print()
