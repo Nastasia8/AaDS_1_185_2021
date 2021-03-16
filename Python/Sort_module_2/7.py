@@ -46,28 +46,11 @@ def radix():
         for item in arr:
             if len(item) > k_max:
                 k_max = len(item)
-        # if x == 0:
-        #     k = 1
-        # while x != 0:
-        #     x = x//10
-        #     k += 1
-        # if k > k_max:
-        #     k_max = k
     print('Initial array:')
     for i in range(n):  # Уравниваем разряды
         if len(arr[i]) < k_max:
             while len(arr[i]) != k_max:
                 arr[i] = f'0{arr[i]}'
-        # k = 0
-        # m = arr[i]
-        # if arr[i] == 0:
-        #     k = 1
-        # while m != 0:
-        #     m = m//10
-        #     k += 1
-        # arr[i] = f'{arr[i]}'
-        # for j in range(k_max-k):
-        #     arr[i] = f'0{arr[i]}'
     for i in range(n):
         if i == n-1:
             print(arr[i])
