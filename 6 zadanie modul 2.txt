@@ -1,0 +1,9 @@
+n=int(input())
+items=list(map(int, input (). split (maxsplit=n)))
+m=int(input())
+orders=list(map(int, input (). split (maxsplit=m)))
+for i in range (n):
+    if items[i]<orders.count(i+1):
+        print ("yes")
+    else:
+        print ("no")
