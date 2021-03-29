@@ -55,7 +55,6 @@ def main():
                         for i in range(k, n-1):
                             if p[i] == p[i+1]:
                                 k += 1
-
                         if n % k != 0:
                             k = n
                         elif p[-1] % k != 0:
