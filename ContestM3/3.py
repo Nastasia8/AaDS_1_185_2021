@@ -6,17 +6,23 @@ def pre_count(string):
         j = p[i]
         while j > 0 and string[j] != string[i+1]:
             j = p[j-1]
-        if j == 1:
-            return i
         if string[j] == string[i+1]:
             p[i+1] = j+1
         else:
             p[i+1] = 0
-    return 1
+    return p
 
-def main():
-    string = input()
-    pre = pre_count(string)
-    print(len(string) // pre)
-
-main()
+string = input()
+pre = pre_count(string)
+index = []
+if 1 in pre:
+    for i in range(len(string)):
+        if pre[i] == 1:
+            index.append(i)
+    pattern = string[:index[-1]]
+else:
+    pattern = string
+if string==pattern*(len(string)//len(pattern)):
+    print(len(string) // len(pattern))
+else:
+    print(1)
