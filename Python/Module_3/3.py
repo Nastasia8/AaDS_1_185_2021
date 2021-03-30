@@ -43,7 +43,9 @@ def main():
                 else:
                     k = n
 
-        elif p[-1] == 0:
+        elif p[-1] == 0 or p[-1] == p[-2]:
+            k = n
+        elif p[-1] != p[-2]+1:
             k = n
         else:
             while p[k] != 0:
