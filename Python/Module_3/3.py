@@ -30,38 +30,30 @@ def main():
         k = n
     else:
         k = 1
-        if n > 2:
-            if p[-1]-1 == p[-2]:
-                while p[k] == 0:
-                    k += 1
-                    flag = False
-                if k > p[-1]:
+        while p[k] == 0:
+            k += 1
+        if k_zero == k:
+            if p.count(1) == 2:
+                k += 1
+            elif p.count(1) > 2:
+                a = p[k:k+p.count(1)]
+                b = [1]*p.count(1)
+                if a == b:
+                    k += p.count(1)-1
+                else:
                     k = n
-                elif max(p) != p[-1]:
-                    k = n
-                elif p[k] == p[k+1]:
-                    k += 1
-                elif k == k_zero and p[-1] % k_zero != 0:
-                    k = n
-                elif k_zero != k:
-                    if flag == False:
-                        k = n
-                    else:
-                        k = 1
-                        while p[k] != 0:
-                            k += 1
-                        while p[k] == 0:
-                            k += 1
-                        for i in range(k, n-1):
-                            if p[i] == p[i+1]:
-                                k += 1
-                        if n % k != 0:
-                            k = n
-                        elif p[-1] % k != 0:
-                            k = 1
-            else:
-                k = n
-    print(n//k)
+
+        elif p[-1] == 0:
+            k = n
+        else:
+            while p[k] != 0:
+                k += 1
+            while p[k] == 0:
+                k += 1
+    if n % k == 0:
+        print(n//k)
+    else:
+        print(1)
 
 
 main()
