@@ -11,11 +11,15 @@ def prefix(s):
     return p
 
 def fun(s):
-    i = 0
-    while prefix(s)[i] == 0:
-        i += 1
-    t = s[:i]
-    return len(s) // len(t)
+    p_arr, ind, k = prefix(s)
+    l = len(s)
+    t = s[:k - 1]
+    if l <= 1:
+        return l
+    elif p_arr[-1] == l-len(p_arr[:ind+1]) and p_arr[-1] != 0:
+        return l//len(p_arr[:ind+1])
+    else:
+        return 1
 
 s = input()
 print(fun(s))
