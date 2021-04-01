@@ -6,19 +6,7 @@ for i in s:
         if not stack or stack [-1]!="(":
             k+=1
         if stack and stack [-1]=="(":
-            stack.pop()
-    elif  i=="]":
-        if not stack or stack [-1]!="[":
-            k+=1
-        if stack and stack [-1]=="(":
             stack.pop()   
-        
-    elif  i=="}":
-        if not stack or stack [-1]!="{":
-            k+=1
-        if stack and stack [-1]=="(":
-            stack.pop()    
-        
     else:
         stack.append(i)
 
