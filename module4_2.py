@@ -9,10 +9,14 @@ while s:
     if m == item:
         new_s.append(item)
         m += 1
-    elif len(dead_end) != 0 and dead_end[-1] == m:
-        new_s.append(dead_end.pop())
-        m += 1
-        dead_end.append(item)
+    elif len(dead_end) != 0:
+        while dead_end:
+            if m == dead_end[-1]:
+                new_s.append(dead_end.pop())
+                m += 1
+            else:
+                dead_end.append(item)
+                break
     else:
         dead_end.append(item)
 while dead_end:
