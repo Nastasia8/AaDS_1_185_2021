@@ -1,0 +1,23 @@
+x = int(input())
+y = list(map(int, input().split()))
+ 
+dead = [0]
+road1 = [0]
+ 
+for i in range(x):
+    while dead[-1] == road1[-1] + 1:
+        road1.append(dead[-1])
+        dead.pop()
+    if y[i] == road1[-1] + 1:
+        road1.append(y[i])
+    else:
+        dead.append(y[i])
+ 
+while dead[-1] == road1[-1] + 1:
+    road1.append(dead[-1])
+    dead.pop()
+ 
+if road1[-1] == x:
+    print('YES')
+else:
+    print('NO')
