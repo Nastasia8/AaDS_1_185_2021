@@ -1,0 +1,28 @@
+from collections import deque
+
+firstPl = list(map(int, input().split()))
+secondPl = list(map(int, input().split()))
+step = 0
+while step < 1e6 and len(firstPl) * len(secondPl):
+    firstPlCard = firstPl.popleft()
+    secondPlCard = secondPl.popleft()
+    if firstPlCard == 0 and secondPlCard == 9:
+        firstPlCard.append(firstPlCard)
+        firstPlCard.append(secondPlCard)
+    elif firstPlCard == 9 and secondPlCard == 0:
+        secondPlCard.append(firstPlCard)
+        secondPlCard.append(secondPlCard)
+    elif firstPlCard > secondPlCard:
+        firstPlCard.append(firstPlCard)
+        firstPlCard.append(secondPlCard)
+    else:
+        secondPlCard.append(firstPlCard)
+        secondPlCard.append(secondPlCard)
+    step = 1
+
+if not firstPl:
+    print("second", step)
+elif not secondPl:
+    print("first", step)
+else:
+    print("BOTVA")
