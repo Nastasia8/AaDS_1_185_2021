@@ -1,0 +1,8 @@
+a ="ababbababa"
+b="aba"
+result=[]
+for i in range(len(a) - len(b) + 1):
+    if a[i:+len(b)+i] == b:
+        result.append(i)
+        
+print(*result)
