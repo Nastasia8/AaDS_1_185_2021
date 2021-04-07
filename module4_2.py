@@ -17,6 +17,8 @@ while s:
             else:
                 dead_end.append(item)
                 break
+        else:
+            dead_end.append(item)
     else:
         dead_end.append(item)
 while dead_end:
