@@ -1,0 +1,28 @@
+def get_hesh(s,g,p, x):
+    j = 0
+    for i in range(g):
+        j = (j*x+ord(s[i])) % p
+    return j
+
+
+def funy(s, res, p, x):
+    ht = get_hesh(res, len(res), p, x)
+    hs = get_hesh(s, len(s), p, x)
+    xt = 1
+    for i in range(len(res)):
+        xt = (xt*x) % p
+    for i in range(len(s)):
+        if (ht == hs):
+            return i
+        ht = (ht*x-ord(res[i])*xt+ord(res[i])) % p
+    return -1
+
+
+def main():
+    s = input()
+    res = input()
+    p = 1e9 + 7
+    x = 27
+    print(funy(s, res, p, x))
+
+main()
