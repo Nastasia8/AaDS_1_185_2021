@@ -11,8 +11,11 @@ def min_value(arr, min_index):
         print(min_v)
     elif arr[-1] < arr[min_index - 1]:
         print(arr[-1])
+        min_index = len(arr)-1
     else:
         print(arr[min_index-1])
+        min_index -= 1
+
     return min_index
 
 
