@@ -24,6 +24,8 @@ class Node:
         # print(self.data, end=" ")
         if not self.right and self.left:
             print(self.data, end=" ")
+        elif not self.left and self.right:
+            print(self.data, end=" ")    
         if self.right:
             self.right.display()
 
