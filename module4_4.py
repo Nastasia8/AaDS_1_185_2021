@@ -1,15 +1,15 @@
 def find_min(n, k, el):
     stk = []
     for i in range(k):
-        while stk and el[1] <= arr[stk[-1]]:
+        while stk and el[i] <= el[stk[-1]]:
             stk.pop()
-        stack.append(1)
+        stk.append(i)
 
     for i in range(k, n):
         print(el[stk[0]])
         while stk and i - k >= stk[0]:
             stk.pop(0)
-        while stk and arr[i] <= arr[stk[-1]]:
+        while stk and el[i] <= el[stk[-1]]:
             stk.pop()
         stk.append(i)
 
