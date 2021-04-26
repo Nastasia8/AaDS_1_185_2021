@@ -30,13 +30,3 @@ while q != 0:
     index.append(get_gcd(0, 0, n, do, l-1, r))
     q -= 1
 print(*index)
-
-'''
-5
-1 2 3 4 5
-3
-1 1
-1 3
-4 5
-
-'''
