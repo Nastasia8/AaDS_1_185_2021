@@ -1,30 +1,23 @@
-
-
-def func(list_):
-    stack = []
-    list_copy = list_.copy()
-    for i in list_:
-        stack.insert(0, i)
-        if i == min(list_copy):
-            list_copy.remove(i)
-            stack.remove(i)
-            for j in stack:
-                if j == min(list_copy):
-                    list_copy.remove(j)
-                    stack.remove(j)
-                else:
-                    break
-    if len(stack) == 1 and stack[0] == max(list_copy):
-        stack.pop()
-    if stack:
-        print("NO")
-    else:
-        print("YES")
-        
-
+from collections import deque
+from copy import copy
 n = int(input())
-list_ = input().split()
-list_ = [int(list_[i]) for i in range(n)]
-func(list_)
-        
+list1 = deque(map(int, input().split()))
+dead_end = deque()
+list1_copy = copy(list1)
 
+for i in list1_copy:
+    dead_end.appendleft(i)
+    if i == min(list1):
+        list1.remove(i)
+        dead_end.remove(i)
+        dead_end_copy = copy(dead_end)
+        for j in dead_end_copy:
+            if j == min(list1):
+                list1.remove(j)
+                dead_end.remove(j)
+
+            else: break
+if dead_end:
+    print("NO")
+else:
+    print("YES")
