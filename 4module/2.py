@@ -19,4 +19,3 @@ if isPsk==True:
     print ("YES")
 else:
     print ("NO")
-
