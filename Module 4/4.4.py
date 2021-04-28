@@ -12,8 +12,6 @@ i_n = 0
 for i in range(n - k + 1):
     if i_n < i:
         i_n = i
-    while res[i_n] < i - k:
+    while res[i_n] < i + k:
         i_n = res[i_n]
     print(nums[i_n])
-
-#Вердикт: WA
