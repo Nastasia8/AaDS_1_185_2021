@@ -1,6 +1,3 @@
-from typing import Sequence
-
-
 class Node:
 
     def __init__(self, data):
@@ -9,9 +6,9 @@ class Node:
         self.right = None
 
 
-    @property
-    def height(self):
-        return self.__height + 1
+    # @property
+    # def height(self):
+    #     return self.__height + 1
 
 
     def add(self, value):
@@ -33,17 +30,16 @@ class Node:
     def check_tree(self):
         if self.left and self.right:
             if abs(height(self.right) - height(self.left)) > 1:
-                print("NO")
-                return 0
-            self.left.check_tree()
-            self.right.check_tree()
+                return "NO"
         else:
             if not self.right and self.left and height(self.left) > 1:
-                print("NO")
-                return 0 
+                return "NO" 
             if not self.left and self.right and height(self.right) > 1:
-                print("NO")
-                return 0   
+                return "NO"
+        if self.left:
+            return self.left.check_tree()
+        if self.right:    
+            return self.right.check_tree()
 
 
 def built_tree(elements):
@@ -62,7 +58,5 @@ def main():
     num = list(map(int, input().split()))
     num.pop()
     num = built_tree(num)
-    x = num.check_tree()
-    if x != 0:
-        print("YES")
-main()    
+    print(num.check_tree()) if num.check_tree() == 'NO' else print("YES")
+main()
