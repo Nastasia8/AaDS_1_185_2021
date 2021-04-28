@@ -29,6 +29,7 @@ class Node:
 
     def check_tree(self):
         if self.left and self.right:
+            # print(abs(height(self.right) - height(self.left)))
             if abs(height(self.right) - height(self.left)) > 1:
                 return "NO"
         else:
@@ -37,9 +38,11 @@ class Node:
             if not self.left and self.right and height(self.right) > 1:
                 return "NO"
         if self.left:
-            return self.left.check_tree()
+            if self.left.check_tree() == "NO":
+                return "NO"
         if self.right:    
-            return self.right.check_tree()
+            if self.right.check_tree() == "NO":
+                return "NO"
 
 
 def built_tree(elements):
