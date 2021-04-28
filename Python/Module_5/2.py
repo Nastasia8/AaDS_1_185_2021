@@ -1,8 +1,18 @@
+from typing import Sequence
+
+
 class Node:
+
     def __init__(self, data):
         self.data = data
         self.left = None
         self.right = None
+
+
+    @property
+    def height(self):
+        return self.__height + 1
+
 
     def add(self, value):
         if self.data == value:
@@ -16,33 +26,43 @@ class Node:
             if self.right:
                 self.right.add(value)
             else:
-                self.right = Node(value)        
-    def display(self):
-        if self.left and not self.right:
-            if not self.left.left and self.left.right:
-                return
-            else:
-                if self.left.left.left or self.left.left.right:
-                    print('NO')
-                    return
-        if self.right and not self.left:
-            if self.right.right.left or self.right.right.right:
-                print('NO')
-                return
+                self.right = Node(value)
+
+
+
+    def check_tree(self):
+        if self.left and self.right:
+            if abs(height(self.right) - height(self.left)) > 1:
+                print("NO")
+                return 0
+            self.left.check_tree()
+            self.right.check_tree()
+        else:
+            if not self.right and self.left and height(self.left) > 1:
+                print("NO")
+                return 0 
+            if not self.left and self.right and height(self.right) > 1:
+                print("NO")
+                return 0   
+
+
+def built_tree(elements):
+    tree = Node(elements[0])
+    for i in range(1, len(elements)):
+        tree.add(elements[i]) 
+    return tree
+
+def height(tree):
+    if not tree:
+        return 0
+    return (max(height(tree.left), height(tree.right))+1)   
+
+
+def main():
+    num = list(map(int, input().split()))
+    num.pop()
+    num = built_tree(num)
+    x = num.check_tree()
+    if x != 0:
         print("YES")
-        return                            
-
-            
-
-
-def built_tree_and_check(num):
-    tree = Node(num[0])
-    for i in range(1, len(num)):
-        tree.add(num[i])
-    tree.display()    
-    return tree    
-
-
-num = list(map(int, input().split()))
-num.pop()
-built_tree_and_check(num)
+main()    
