@@ -21,13 +21,13 @@ def build(v, l, r, do, a):
 def get_k_zero(v, l, r, do, k):
     if k > do[v]:
         return -1
-    if l == r:
+    if r - l == 1:
         return l
     m = (r+l)//2
     if do[2*v+1] >= k:
         return get_k_zero(2*v+1, l, m, do, k)
     else:
-        return get_k_zero(2*v+2, m+1, r, do, k - do[2*v+1])
+        return get_k_zero(2*v+2, m, r, do, k - do[2*v+1])
 
 n = int(input())
 a = [0 if int(i) != 0 else 1 for i in input().split()]
@@ -37,6 +37,6 @@ q = int(input())
 index = []
 while q != 0:
     l, r, k = map(int, input().split())
-    index.append(get_k_zero(0, l, r, do, k))
+    index.append(get_k_zero(0, l-1, r, do, k))
     q -= 1
 print(*index)
