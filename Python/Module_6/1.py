@@ -12,7 +12,7 @@ def shift_down(cur_index, heap):
         left_cur_index = 2*cur_index+1
         right_cur_index = 2*cur_index+2
         child_index = left_cur_index
-        if right_cur_index < len(heap) and heap[left_cur_index] > heap[right_cur_index]:
+        if right_cur_index < len(heap) and heap[left_cur_index] < heap[right_cur_index]:
             child_index = right_cur_index
         if heap[child_index] <= heap[cur_index]:
             break

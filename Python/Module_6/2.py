@@ -30,7 +30,7 @@ class Heap:
             left_cur_index = 2*cur_index+1
             right_cur_index = 2*cur_index+2
             child_index = left_cur_index
-            if right_cur_index < len(self.__heap) and self.__heap[left_cur_index] > self.__heap[right_cur_index]:
+            if right_cur_index < len(self.__heap) and self.__heap[left_cur_index] < self.__heap[right_cur_index]:
                 child_index = right_cur_index
             if self.__heap[child_index] <= self.__heap[cur_index]:
                 break
