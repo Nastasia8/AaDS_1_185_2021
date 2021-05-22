@@ -9,20 +9,6 @@ class Heap:
     def lenght(self):
         return len(self.__heap)
 
-    @property
-    def empty(self):
-        return self.lenght == 0
-
-    @property
-    def min(self):
-        return self.__heap
-
-    def shift_up(self, value):
-        while self.__heap[value] < self.__heap[(value-1)//2]:
-            self.__heap[value], self.__heap[(value-1) //
-                                            2] = self.__heap[(value-1)//2], self.__heap[value]
-            value = (value-1)//2
-
     def shift_down(self, value):
         while 2*value+1 < len(self.__heap):
             left_cur_index = 2*value+1
@@ -35,11 +21,8 @@ class Heap:
             self.__heap[child_index], self.__heap[value] = self.__heap[value], self.__heap[child_index]
             value = child_index
 
-    def add(self, value):
-        self.__heap.append(value)
-        self.shift_up(len(self.__heap)-1, self.__heap)
-
-    def extract(self):
+    @property
+    def extract_and_get_max(self):
         self.__heap[0], self.__heap[len(
             self.__heap) - 1] = self.__heap[len(self.__heap)-1], self.__heap[0]
         x = self.__heap.pop()
@@ -68,10 +51,9 @@ def main():
     arr = [int(i) for i in input().split()]
     heap = built(arr)
     result = deque()
-    # heap.print_heap()
     while heap.lenght:
         heap.print_heap
-        result.appendleft(heap.extract())
+        result.appendleft(heap.extract_and_get_max)
     print(*result)
 
 
