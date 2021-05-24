@@ -5,7 +5,7 @@
 #     return heap_
 
 def shift_up(c, heap_):
-    while heap_[c] > heap_[(c-1)//2]:
+    while heap_[c] > heap_[(c-1)//2] and (c-1)//2 >= 0:
         heap_[c], heap_[(c-1)//2] = heap_[(c-1)//2], heap_[c]
         c = (c-1)//2
     return c+1
