@@ -43,10 +43,15 @@ class Heap:
 
     def remove(self, index):
         if index <= len(self.__heap) and index != 0:
+            last = self.__heap[-1]
+            nelast = self.__heap[index-1]
             self.__heap[index -
                         1], self.__heap[-1] = self.__heap[-1], self.__heap[index-1]
             self.__result.append(self.__heap.pop())
-            self.shift_down(index-1)
+            if last > nelast:
+                self.shift_up(index-1)
+            else:
+                self.shift_down(index-1)
         else:
             self.__result.append(-1)
 
@@ -72,7 +77,7 @@ def main():
             num.remove_max_element()
         elif commands[0] == 2:
             num.add(commands[1])
-        else:
+        elif commands[0] == 3:
             num.remove(commands[1])
     num.show_result
 
