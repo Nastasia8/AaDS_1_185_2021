@@ -8,7 +8,6 @@ def mergeSort(numbers, start, end):
 		internalSort(numbers, left, right, start) 
 		print(start + 1, end, numbers[start], numbers[end - 1])
 
-
 def internalSort(arr, left, right, start):
 	i = j = 0
 	k = start
@@ -28,7 +27,6 @@ def internalSort(arr, left, right, start):
 	    arr[k] = right[i]
 	    i += 1
 	    k += 1
-
 
 def main():
 	m = int(input())

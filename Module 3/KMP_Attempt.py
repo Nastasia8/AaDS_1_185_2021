@@ -13,7 +13,6 @@ def FindPi(form):
                 j = p[j - 1]
     return(p)
 
-
 def KMPAlgorithm(string, form):
     FindPi(form)
     m = len(form); n = len(string)
@@ -32,11 +31,9 @@ def KMPAlgorithm(string, form):
     if i == n:
         print("Образ не найден")
     
-    
 def main():
     string = input("Введите строку: ")
     form = input("Введите образ для поиска по строке: ")
     KMPAlgorithm(string, form)
-
 
 main()

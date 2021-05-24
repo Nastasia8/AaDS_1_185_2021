@@ -13,10 +13,8 @@ def prefix(string):
             index = i + 1
     return index
 
-
 def main():
     string = str(input())
     print(prefix(string))
-
 
 main()

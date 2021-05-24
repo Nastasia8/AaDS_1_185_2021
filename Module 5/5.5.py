@@ -1,6 +1,5 @@
 from math import gcd
 
-
 def build(value, left, right, tree, array):
     if right - left == 1:
         tree[value] = array[left]
@@ -21,7 +20,6 @@ def update(value, left, right, tree, index, newValue):
         update (2 * value + 2, middle, right, tree, index, newValue)
     tree[value] = gcd(tree[2 * value + 1],tree[2 * value + 2])
 
-
 def getMax(value, left, right, tree, qLeft, qRight):
     if qLeft <= left and qRight >= right:
         return tree[value]
@@ -31,7 +29,6 @@ def getMax(value, left, right, tree, qLeft, qRight):
     tLeft = getMax(2 * value + 1, left, middle, tree, qLeft, qRight)
     tRight = getMax(2 * value + 2, middle, right, tree, qLeft, qRight)
     return gcd(tLeft, tRight)
-
 
 def main():
     n = int(input())
@@ -49,10 +46,4 @@ def main():
         q -= 1
     print(*index)
 
-
 main()
-
-
-'''
-Штирлиц долго смотрел в одну точку. Потом в другую. "Двоеточие!" - наконец-то смекнул Штирлиц.
-'''

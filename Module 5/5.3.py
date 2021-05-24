@@ -1,6 +1,5 @@
 from math import gcd
 
-
 def buildTree(value, left, right, tree, array):
     if right - left == 1:
         tree[value] = array[left]
@@ -9,7 +8,6 @@ def buildTree(value, left, right, tree, array):
     buildTree(2 * value + 1, left, middle, tree, array)
     buildTree(2 * value + 2, middle, right, tree, array)
     tree[value] = gcd(tree[2 * value + 1], tree[2 * value + 2])
-
 
 def getMax(value, left, right, tree, qLeft, qRight):
     if qLeft <= left and qRight >= right:
@@ -21,7 +19,6 @@ def getMax(value, left, right, tree, qLeft, qRight):
     tRight = getMax(2 * value + 2, middle, right, tree, qLeft, qRight)
 
     return gcd(tLeft, tRight)
-
 
 def main():
     n = int(input())
@@ -35,6 +32,5 @@ def main():
         index.append(getMax(0, 0, n, tree, left - 1, right))
         q -= 1
     print(*index)
-
 
 main()

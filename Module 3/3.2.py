@@ -4,7 +4,6 @@ def getHesh(string, n, p, x):
         res = (res * x + ord(string[i])) % p
     return res
 
-
 def RobinKarpAlgorithm(string, T, p, x):
     ht = getHesh(T, len(T), p, x)
     hs = getHesh(string, len(string), p, x)
@@ -17,13 +16,11 @@ def RobinKarpAlgorithm(string, T, p, x):
         ht = (ht * x - ord(T[i]) * xt + ord(T[i])) % p
     return -1
 
-
 def main():
     p = 1e9 + 7
     x = 26
     S = str(input())
     T = str(input())
     print(RobinKarpAlgorithm(S, T, p, x))
-
 
 main()
