@@ -1,53 +1,51 @@
+from collections import deque
 
 
-def shift_up(cur_index, heap):
-    while heap[cur_index] > heap[(cur_index-1)//2] and (cur_index-1)//2 >= 0:
-        heap[cur_index], heap[(cur_index-1) //
-                              2] = heap[(cur_index-1)//2], heap[cur_index]
-        cur_index = (cur_index-1)//2
-    return cur_index+1
+class Heap:
+    def __init__(self, arr):
+        self.__heap = arr
 
-def shift_down(cur_index, heap):
-    while 2*cur_index+1 < len(heap):
-        left_cur_index = 2*cur_index+1
-        right_cur_index = 2*cur_index+2
-        child_index = left_cur_index
-        if right_cur_index < len(heap) and heap[left_cur_index] < heap[right_cur_index]:
-            child_index = right_cur_index
-        if heap[child_index] <= heap[cur_index]:
-            break
-        heap[child_index], heap[cur_index] = heap[cur_index], heap[child_index]
-        cur_index = child_index
-    return cur_index+1
+    @property
+    def length(self):
+        return len(self.__heap)
+
+    def shift_down(self, index):
+        while 2*index+1 < self.length:
+            left_index = 2*index+1
+            right_index = 2*index+2
+            child_index = left_index
+            if right_index < self.length and self.__heap[left_index] < self.__heap[right_index]:
+                child_index = right_index
+            if self.__heap[child_index] <= self.__heap[index]:
+                break
+            self.__heap[index], self.__heap[child_index] = self.__heap[child_index], self.__heap[index]
+            index = child_index
+
+    def extract(self):
+        self.__heap[0], self.__heap[self.length-1] = self.__heap[self.length-1], self.__heap[0]
+        max_ = self.__heap.pop()
+        self.shift_down(0)
+        return max_
+
+    def print_(self):
+        print(*self.__heap)
+
+def build(arr):
+    heap = arr[:]
+    h = Heap(heap)
+    for i in range(len(heap)-1, -1, -1):
+        h.shift_down(i)
+    return h
+
 
 def main():
-    n, m = map(int, input().split())
-    result = []
-    num = []
-    for i in range(m):
-        commands = list(map(int, input().split()))
-        if commands[0] == 1:
-            if num:
-                if len(num) == 1:
-                    x = num.pop()
-                    result.append([0, x])
-                else:
-                    num[0], num[-1] = num[-1], num[0]
-                    x = num.pop()
-                    result.append([shift_down(0, num), x])
-            else:
-                result.append(-1)
-        else:
-            if len(num) < n:
-                num.append(commands[1])
-                result.append(shift_up(len(num)-1, num))
-            else:
-                result.append(-1)
-    for item in result:
-        if type(item) != int:
-            print(*item)
-        else:
-            print(item)
-    print(*num)
+    n = int(input())
+    list_ = list(map(int, input().split()))
+    heap = build(list_)
+    result = deque()
+    while heap.length:
+        heap.print_()
+        result.appendleft(heap.extract())
+    print(*result)
 
 main()
