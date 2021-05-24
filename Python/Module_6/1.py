@@ -3,7 +3,6 @@ def shift_up(cur_index, heap):
         heap[cur_index], heap[(cur_index-1) //
                               2] = heap[(cur_index-1)//2], heap[cur_index]
         cur_index = (cur_index-1)//2
-    # print(cur_index+1)
     return cur_index+1
 
 
@@ -18,7 +17,6 @@ def shift_down(cur_index, heap):
             break
         heap[child_index], heap[cur_index] = heap[cur_index], heap[child_index]
         cur_index = child_index
-    # print(cur_index+1, end=" ")
     return cur_index+1
 
 
@@ -27,12 +25,12 @@ def main():
     result = []
     num = []
     for i in range(m):
-        a = list(map(int, input().split()))
-        if a[0] == 1:
+        commands = list(map(int, input().split()))
+        if commands[0] == 1:
             if num:
                 if len(num) == 1:
-                    num.pop()
-                    result.append(0)
+                    x = num.pop()
+                    result.append([0, x])
                 else:
                     num[0], num[-1] = num[-1], num[0]
                     x = num.pop()
@@ -41,7 +39,7 @@ def main():
                 result.append(-1)
         else:
             if len(num) < n:
-                num.append(a[1])
+                num.append(commands[1])
                 result.append(shift_up(len(num)-1, num))
             else:
                 result.append(-1)

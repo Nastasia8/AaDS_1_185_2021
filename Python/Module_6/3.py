@@ -21,7 +21,6 @@ class Heap:
             self.__heap[child_index], self.__heap[value] = self.__heap[value], self.__heap[child_index]
             value = child_index
 
-    @property
     def extract_and_get_max(self):
         self.__heap[0], self.__heap[len(
             self.__heap) - 1] = self.__heap[len(self.__heap)-1], self.__heap[0]
@@ -33,7 +32,6 @@ class Heap:
     def get_min(self):
         return self.__heap[0]
 
-    @property
     def print_heap(self):
         print(*self.__heap)
 
@@ -52,8 +50,8 @@ def main():
     heap = built(arr)
     result = deque()
     while heap.lenght:
-        heap.print_heap
-        result.appendleft(heap.extract_and_get_max)
+        heap.print_heap()
+        result.appendleft(heap.extract_and_get_max())
     print(*result)
 
 
