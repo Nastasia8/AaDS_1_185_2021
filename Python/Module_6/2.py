@@ -5,10 +5,6 @@ class Heap:
         self.__full = full
 
     @property
-    def test(self):
-        print(self.__heap)
-
-    @property
     def show_result(self):
         for item in self.__result:
             if type(item) == int:
@@ -46,14 +42,14 @@ class Heap:
             self.__result.append(-1)
 
     def remove(self, index):
-        if index < len(self.__heap):
-            self.__heap[index], self.__heap[-1] = self.__heap[-1], self.__heap[index]
+        if index <= len(self.__heap) and index != 0:
+            self.__heap[index -
+                        1], self.__heap[-1] = self.__heap[-1], self.__heap[index-1]
             self.__result.append(self.__heap.pop())
-            self.shift_down(index)
+            self.shift_down(index-1)
         else:
             self.__result.append(-1)
 
-    @property
     def remove_max_element(self):
         if len(self.__heap) > 1:
             x = self.__heap[0]
@@ -61,8 +57,8 @@ class Heap:
             self.__heap.pop()
             self.__result.append([self.shift_down(0), x])
         elif len(self.__heap) == 1:
-            self.__heap.pop()
-            self.__result.append(0)
+            x = self.__heap.pop()
+            self.__result.append([0, x])
         else:
             self.__result.append(-1)
 
@@ -73,12 +69,11 @@ def main():
     for i in range(m):
         commands = list(map(int, input().split()))
         if commands[0] == 1:
-            num.remove_max_element
+            num.remove_max_element()
         elif commands[0] == 2:
             num.add(commands[1])
         else:
-            num.remove(commands[1]-1)
-        # num.test
+            num.remove(commands[1])
     num.show_result
 
 
