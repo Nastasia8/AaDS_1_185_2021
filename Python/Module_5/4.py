@@ -31,28 +31,6 @@ def build(v, l, r, do, a):
     do[v] = do[2*v+1]+do[2*v+2]
 
 
-# def build(v, l, r, do, a):
-#     if r-l == 1:
-#         do[v] = a[l]
-#         return
-#     m = (r+l)//2
-#     build(2*v+1, l, m, do, a)
-#     build(2*v+2, m, r, do, a)
-#     do[v] = do[2*v+1]+do[2*v+2]
-    # do[v] = gcd(do[2*v+1], do[2*v+2])
-
-
-# def get_gcd(v, l, r, do, ql, qr):
-#     if ql <= l and qr >= r:
-#         return do[v]
-#     if ql >= r or qr <= l:
-#         return 0
-#     m = (r+l)//2
-#     tl = get_gcd(2*v+1, l, m, do, ql, qr)
-#     tr = get_gcd(2*v+2, m, r, do, ql, qr)
-#     return gcd(tl, tr)
-
-
 n = int(input())
 a = list(map(int, input().split()))
 for i in range(n):
@@ -66,36 +44,12 @@ q = int(input())
 index = []
 while q != 0:
     l, r, k = map(int, input().split())
-    x = 1
-    # index.append(get_sum(0, 0, n, do, l-1, r))
-    # index.append(get_sum(0, l, r, do, k))
-    if l == 1:
-        pass
-    else:
-        while x != l:
-            x += 1
-
-    # index.append(find_k(0, 0, r, do, k+get_sum(0, 0, n, do, 0, x-1)))
-    sum = get_sum(0, 0, n, do, l-1, r)
-    if sum >= k and x > 1:
-        index.append(find_k(0, 0, n, do, k+get_sum(0, 0, n, do, 0, x-1)))
-    elif sum >= k and x == 1:
+    sum_zero = get_sum(0, 0, n, do, l-1, r)
+    if sum_zero >= k and l > 1:
+        index.append(find_k(0, 0, n, do, k+get_sum(0, 0, n, do, 0, l-1)))
+    elif sum_zero >= k and l == 1:
         index.append(find_k(0, 0, n, do, k))
     else:
         index.append(-1)
     q -= 1
 print(*index)
-'''
-input:
-9
-1 0 2 0 3 0 4 4 0
-6
-1 4 2
-1 6 1
-1 6 2
-1 6 3
-3 7 1
-3 7 2
-output:
-4 2 4 6 4 6
-'''
