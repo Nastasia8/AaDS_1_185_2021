@@ -53,3 +53,4 @@ while q != 0:
         index.append(-1)
     q -= 1
 print(*index)
+#
