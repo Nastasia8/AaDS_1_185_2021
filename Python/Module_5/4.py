@@ -76,8 +76,10 @@ while q != 0:
             x += 1
 
     # index.append(find_k(0, 0, r, do, k+get_sum(0, 0, n, do, 0, x-1)))
-    if get_sum(0, 0, n, do, l-1, r) >= k:
+    if get_sum(0, 0, n, do, l-1, r) >= k and x > 1:
         index.append(find_k(0, 0, r, do, k+get_sum(0, 0, n, do, 0, x-1)))
+    elif get_sum(0, 0, n, do, l-1, r) >= k and x == 1:
+        index.append(find_k(0, 0, r, do, k))
     else:
         index.append(-1)
     q -= 1
