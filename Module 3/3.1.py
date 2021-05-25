@@ -11,7 +11,6 @@ def zFunct(s):
             r = arr[i] + i - 1
     return arr
             
-
 def main():
     s = input()
     t = input()
@@ -19,6 +18,5 @@ def main():
     for i in range(len(z)):
         if len(t) == z[i]:
             print(i - len(t) - 1, end = " ")
-
 
 main()

@@ -12,7 +12,6 @@ def main():
     print("Sorted array:")
     print(*array, sep = ", ")
 
-
 def radixSort(array):
     phase = 0
     m = len(array[0])
@@ -37,7 +36,6 @@ def radixSort(array):
                 array[p] = bucket[j][k]
                 p += 1
     return array
-
 
 main()
 
