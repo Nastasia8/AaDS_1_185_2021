@@ -23,21 +23,10 @@ class treeNode:
     def findForks(self):
         if self.left:
             self.left.findForks()
-        if self.left or self.right:
-            if self.left and not self.right:
-                print(self.data)
-            elif self.right and not self.left:
-                print(self.data)
-        if self.right:
-            self.right.findForks()
-    
-    def findFork(self):
-        if self.left:
-            self.left.findFork()
         if (self.left and self.right is None) or (self.left is None and self.right):
             print(self.data)
         if self.right:
-            self.right.findFork()
+            self.right.findForks()
 
 def buildTree(elements):
     result = treeNode(elements[0])
@@ -49,6 +38,6 @@ def main():
     numbers = list(map(int, input().split(" "))) 
     numbers.pop()
     tree = buildTree(numbers)
-    tree.findFork()
+    tree.findForks()
  
 main()
