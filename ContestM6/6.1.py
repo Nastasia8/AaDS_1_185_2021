@@ -1,4 +1,5 @@
 
+
 def shift_up(index, heap):
     while heap[index] > heap[(index-1)//2] and (index-1)//2 >= 0:
         heap[index], heap[(index-1)//2] = heap[(index-1)//2], heap[index]
@@ -22,15 +23,6 @@ def add(item, heap):
     heap.append(item)
     return shift_up(len(heap)-1, heap)
 
-def direct_extract(index, heap):
-    val = heap[len(heap)-1]
-    heap[index-1], heap[len(heap)-1] = heap[len(heap)-1], heap[index-1]
-    ind = heap.pop()
-    if val < ind:
-        shift_down(index-1, heap)
-    elif val > ind:
-        shift_up(index-1, heap)
-    return ind
     
 def extract(heap):
     heap[0], heap[len(heap)-1] = heap[len(heap)-1], heap[0]
@@ -60,12 +52,6 @@ def main():
                 result.append(-1)
             else:
                 result.append(add(int(data[-1]), heap))
-        elif int(data[0]) == 3:
-            if len(heap) >= int(data[-1]) and int(data[-1]) > 0:
-                result.append(direct_extract(int(data[-1]), heap))
-            else:
-                result.append(-1)
-
     for i in result:
         if type(i) == tuple:
             print(*i)
