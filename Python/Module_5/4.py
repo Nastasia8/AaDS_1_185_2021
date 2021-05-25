@@ -1,9 +1,9 @@
 
 def find_k(v, ql, qr, do, k):
-    if k > do[v] or ql > qr:
+    if k > do[v]:
         return -1
     if qr - ql == 1:
-        return ql
+        return qr
     m = (ql+qr)//2
     if do[v*2+1] >= k:
         return find_k(2*v+1, ql, m, do, k)
@@ -66,8 +66,19 @@ q = int(input())
 index = []
 while q != 0:
     l, r, k = map(int, input().split())
-    # index.append(get_sum(0, 0, n, do, l, r))
+    x = 1
+    # index.append(get_sum(0, 0, n, do, l-1, r))
     # index.append(get_sum(0, l, r, do, k))
-    index.append(find_k(0, l, r, do, k))
+    if l == 1:
+        pass
+    else:
+        while x != l:
+            x += 1
+
+    # index.append(find_k(0, 0, r, do, k+get_sum(0, 0, n, do, 0, x-1)))
+    if get_sum(0, 0, n, do, l-1, r) >= k:
+        index.append(find_k(0, 0, r, do, k+get_sum(0, 0, n, do, 0, x-1)))
+    else:
+        index.append(-1)
     q -= 1
 print(*index)
