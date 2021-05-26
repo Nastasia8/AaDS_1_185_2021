@@ -42,7 +42,7 @@ def extract_2_o(item, heap_):
     heap_[item], heap_[len(heap_)-1] = heap_[len(heap_)-1], heap_[item]
     index_ = heap.pop()
     if v > index_:
-        shift_up(index_-1, heap_)
+        shift_up(item, heap_)
     else:
         shift_down(item, heap_)
     return index_
