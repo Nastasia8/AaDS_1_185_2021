@@ -1,44 +1,44 @@
-def shift_up(current_index, heap):
-    while heap[current_index] < heap[(current_index-1)//2]:
-        heap[current_index], heap[len(current_index-1)//2] = heap[(current_index-1)//2], heap[current_index]
-        current_index = (current_index-1)//2
-    return current_index+1
+def shift_up(index, heap):
+    while heap[index] > heap[(index-1)//2] and (index-1)//2 >= 0: #пока куча[текущий индекс] больше, чем куча[индекс родителя] и порядковый номер родителя, то:
+        heap[index], heap[(index-1)//2] = heap[(index-1)//2], heap[index] #здесь поднимаем элементы по куче
+        index = (index-1)//2
+    return index+1
 
-def shift_down(current_index, heap):
-    while 2*current_index+1 < len(heap):
-        left_index = 2*current_index+1
-        right_index = 2*current_index+2
+def shift_down(index, heap): #тот же принципе, что и в 6.1
+    while 2*index+1 < len(heap):
+        left_index = 2*index+1
+        right_index = 2*index+2
         child_index = left_index
-        if right_index < len(heap) and heap[left_index] > heap[right_index]:
+        if right_index < len(heap) and heap[left_index] < heap[right_index]:
             child_index = right_index
-        if heap[child_index] >= heap[current_index]:
+        if heap[child_index] <= heap[index]:
             break
-        heap[current_index], heap[child_index] = heap[child_index], heap[current_index]
-        current_index = child_index
-    return child_index+1
+        heap[index], heap[child_index] = heap[child_index], heap[index]
+        index = child_index
+    return index+1
 
-def add(component, heap):
-    heap.append(component)
+def add(commponent, heap):
+    heap.append(commponent)
     return shift_up(len(heap)-1, heap)
 
 
-def extract(heap):
-    heap[0], heap[len(heap)-1] = heap[len(heap)-1], heap[0]
-    id = heap.pop()
-    if heap:
-        return shift_down(0, heap), id
+def extract(heap): 
+    heap[0], heap[len(heap)-1] = heap[len(heap)-1], heap[0] #переприсваеваем 
+    ind = heap.pop()
+    if heap: #если куча не пуста
+        return shift_down(0, heap), ind
     else:
-        return 0, id
+        return 0, ind
 
-def min(heap): #поиск минимального
+def get_max(heap): #поиск макс
     return heap[0]
 
 def main():
     heap = []
     result = []
     input_ = input().split()
-    n,f = int(input_[0]), int(input_[1])
-    for i in range(f):
+    n, p = int(input_[0]), int(input_[1])
+    for i in range(p):
         data = input().split()
         if int(data[0]) == 1:
             if not heap:
@@ -50,13 +50,11 @@ def main():
                 result.append(-1)
             else:
                 result.append(add(int(data[-1]), heap))
-    for i in rasult:
+    for i in result:
         if type(i) == tuple:
             print(*i)
         else:
             print(i)
     print(*heap)
 
-
-main()
-    
+main() 
