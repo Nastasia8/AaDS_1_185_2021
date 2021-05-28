@@ -21,7 +21,7 @@ def get_zero(v, l, r, do, k):
 def get_sum(v, l, r, do, ql, qr):
     if ql <= l and qr >= r:
         return do[v]
-    if ql >= r or qr <= 1:
+    if ql >= r or qr <= l:
         return 0
     m = (r+l)//2
     tl = get_sum(2*v+1, l, m, do, ql, qr)
@@ -31,6 +31,12 @@ def get_sum(v, l, r, do, ql, qr):
 def main():
     n = int(input())
     a = list(map(int, input().split()))[:n]
+    for i in range(len(a)):
+        if a[i]=0:
+            a[i]=1
+        else a[i]=1:
+            a[i]=0
+        
     do = [0] * 4 * n
     q = int(input())
     build(0, 0, n, do, a)
