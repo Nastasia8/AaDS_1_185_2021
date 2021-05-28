@@ -34,7 +34,7 @@ def main():
     for i in range(len(a)):
         if a[i]=0:
             a[i]=1
-        else a[i]=1:
+        else :
             a[i]=0
         
     do = [0] * 4 * n
