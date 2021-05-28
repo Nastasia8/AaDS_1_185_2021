@@ -1,0 +1,71 @@
+def shift_up(current_index, heap):
+    while heap[current_index] < heap[(current_index-1)//2]:
+        heap[current_index], heap[len(current_index-1)//2] = heap[(current_index-1)//2], heap[current_index]
+        current_index = (current_index-1)//2
+    return current_index+1
+
+def shift_down(current_index, heap):
+    while 2*current_index+1 < len(heap):
+        left_index = 2*current_index+1
+        right_index = 2*current_index+2
+        child_index = left_index
+        if right_index < len(heap) and heap[left_index] > heap[right_index]:
+            child_index = right_index
+        if heap[child_index] >= heap[current_index]:
+            break
+        heap[current_index], heap[child_index] = heap[child_index], heap[current_index]
+        current_index = child_index
+    return child_index+1
+
+def add(component, heap):
+    heap.append(component)
+    return shift_up(len(heap)-1, heap)
+    
+def old_extract(index, heap):
+    num = heap[len(heap)-1]
+    heap[index-1], heap[len(heap)-1] = heap[len(heap)-1], heap[index-1]
+    id = heap.pop()
+    if num < ind:
+        shift_down(index-1, heap)
+    elif num > ind:
+        shift_up(index-1, heap)
+    return id
+
+
+def new_extract(heap):
+    heap[0], heap[len(heap)-1] = heap[len(heap)-1], heap[0]
+    id = heap.pop()
+    if heap:
+        return shift_down(0, heap), id
+    else:
+        return 0, id
+
+def min(heap):
+    return heap[0]
+
+def main():
+    heap = []
+    result = []
+    input_ = input().split()
+    n,f = int(input_[0]), int(input_[1])
+    for i in range(f):
+        data = input().split()
+        if int(data[0]) == 1:
+            if not heap:
+                result.append(-1)
+            else:
+                result.append(extract(heap))
+        elif int(data[0]) == 2:
+            if len(heap) == n:
+                result.append(-1)
+            else:
+                result.append(add(int(data[-1]), heap))
+    for i in rasult:
+        if type(i) == tuple:
+            print(*i)
+        else:
+            print(i)
+    print(*heap)
+
+
+main()
