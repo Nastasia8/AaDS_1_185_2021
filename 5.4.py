@@ -32,7 +32,7 @@ def main():
     n = int(input())
     a = list(map(int, input().split()))[:n]
     for i in range(len(a)):
-        if a[i]=0:
+        if a[i]==0:
             a[i]=1
         else :
             a[i]=0
